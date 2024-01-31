@@ -1,0 +1,94 @@
+<!--
+  Hit RUN to see this project in action!
+  
+  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>RPS_CaCULATOR</title>
+  
+  <link href="css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+   
+  <h1 class="heading" >RPS CALCULATOR</h1>
+  <div>
+    <p class="demo">You Can Do Arithmetic Operations</p>
+  </div>
+  <div class="container">
+    <div>
+      <input type="text" class="textarea"/>
+    </div>
+    <div>
+      <button class="button Ac" >AC</button>
+      <button class="button bs" >BS</button>
+      <button class="button mod" >%</button>
+      <button class="button slash" >/</button>                  
+    </div>
+    <div>
+      <button class="button" >7</button>
+      <button class="button" >8</button>
+      <button class="button" >9</button>
+      <button class="button" >*</button>                  
+    </div>
+    <div>
+      <button class="button" >4</button>
+      <button class="button" >5</button>
+      <button class="button" >6</button>
+      <button class="button" >-</button>                  
+    </div>
+    <div>
+      <button class="button" >1</button>
+      <button class="button" >2</button>
+      <button class="button" >3</button>
+      <button class="button" >+</button>                  
+    </div>
+    <div>
+      <button class="button zero" >0</button>
+      <button class="button" >.</button>
+      <button class="button" >=</button>
+    </div>
+    
+  </div>
+  <script>
+    let string  = "";
+    let buttons = document.querySelectorAll('.button');
+    // console.log(buttons)
+    Array.from(buttons).forEach((button) => {
+      button.addEventListener('click',(e) => {
+      // console.log(e.target)
+       
+        if(e.target.innerHTML == '='){
+          string = eval(string);
+          document.querySelector('input').value = string;
+        }
+         else if(e.target.innerHTML == 'AC'){
+            string = "";
+            document.querySelector('input').value = string;
+
+          }
+           else if (e.target.innerHTML == 'BS'){
+           //  let s = string.charAt(string.length - 1);
+             string = string.substring(0,string.length - 1);
+             console.log(string)
+             document.querySelector('input').value = string;
+
+           }
+          
+        else {
+          string = string + e.target.innerHTML;
+          document.querySelector('input').value = string;
+        }
+      })
+    })
+  </script>
+
+</body>
+
+</html>
